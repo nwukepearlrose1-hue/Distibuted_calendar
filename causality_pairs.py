@@ -1,19 +1,5 @@
 """Classify pairs of logged events as BEFORE / AFTER / EQUAL / CONCURRENT
-using the project's own vector_compare.compare_vectors(), and surface
-genuinely concurrent pairs from different nodes for Report 2.
-
-Usage:
-    python3 causality_pairs.py --dir logs
-        (expects node-0.jsonl ... node-9.jsonl, or --dir to point
-         elsewhere; also expects vector_compare.py to be importable,
-         e.g. run this from your project root next to app/)
-
-Outputs:
-    causality_pairs.csv   -- every classified pair examined
-    Prints a curated list of at least 10 pairs, including at least
-    3 concurrent pairs from different nodes, ready to paste into
-    Report 2 with your own written justification.
-"""
+using the project's own vector_compare.compare_vectors()"""
 
 import argparse
 import csv
