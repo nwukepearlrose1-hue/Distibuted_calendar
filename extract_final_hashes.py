@@ -1,6 +1,6 @@
 """Extract each node's final state_hash from its JSONL log on disk,
-via docker exec, without needing to restart the cluster or modify
-any running container.
+using docker exec, without restarting cluster or modifying the
+container.
 
 
 """
