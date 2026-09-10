@@ -1,0 +1,50 @@
+services:
+  node7:
+    build: .
+    container_name: node7
+    environment:
+      NODE_ID: "7"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    ports:
+      - "9007:8000"
+    volumes:
+      - node7-data:/data
+      - ./topology.json:/app/topology.json:ro
+
+  node8:
+    build: .
+    container_name: node8
+    environment:
+      NODE_ID: "8"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    ports:
+      - "9008:8000"
+    volumes:
+      - node8-data:/data
+      - ./topology.json:/app/topology.json:ro
+
+  node9:
+    build: .
+    container_name: node9
+    environment:
+      NODE_ID: "9"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    ports:
+      - "9009:8000"
+    volumes:
+      - node9-data:/data
+      - ./topology.json:/app/topology.json:ro
+
+volumes:
+  node7-data:
+  node8-data:
+  node9-data:

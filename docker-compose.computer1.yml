@@ -1,0 +1,66 @@
+services:
+  node0:
+    build: .
+    container_name: node0
+    environment:
+      NODE_ID: "0"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    ports:
+      - "9000:8000"
+    volumes:
+      - node0-data:/data
+      - ./topology.json:/app/topology.json:ro
+
+  node1:
+    build: .
+    container_name: node1
+    environment:
+      NODE_ID: "1"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    ports:
+      - "9001:8000"
+    volumes:
+      - node1-data:/data
+      - ./topology.json:/app/topology.json:ro
+
+  node2:
+    build: .
+    container_name: node2
+    environment:
+      NODE_ID: "2"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    ports:
+      - "9002:8000"
+    volumes:
+      - node2-data:/data
+      - ./topology.json:/app/topology.json:ro
+
+  node3:
+    build: .
+    container_name: node3
+    environment:
+      NODE_ID: "3"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    ports:
+      - "9003:8000"
+    volumes:
+      - node3-data:/data
+      - ./topology.json:/app/topology.json:ro
+
+volumes:
+  node0-data:
+  node1-data:
+  node2-data:
+  node3-data:

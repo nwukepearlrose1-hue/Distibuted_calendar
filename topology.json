@@ -1,0 +1,16 @@
+{
+  "_comment": "Fill in the REAL lab IP address for each computer below. Get each machine's IP by running 'ipconfig' (Windows) or 'ip addr' / 'hostname -I' (Linux) on that computer. This exact file must be copied identically to all three computers before starting any containers.",
+
+  "0": {"host": "COMPUTER1_IP", "port": 9000},
+  "1": {"host": "COMPUTER1_IP", "port": 9001},
+  "2": {"host": "COMPUTER1_IP", "port": 9002},
+  "3": {"host": "COMPUTER1_IP", "port": 9003},
+
+  "4": {"host": "COMPUTER2_IP", "port": 9004},
+  "5": {"host": "COMPUTER2_IP", "port": 9005},
+  "6": {"host": "COMPUTER2_IP", "port": 9006},
+
+  "7": {"host": "COMPUTER3_IP", "port": 9007},
+  "8": {"host": "COMPUTER3_IP", "port": 9008},
+  "9": {"host": "COMPUTER3_IP", "port": 9009}
+}

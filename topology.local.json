@@ -1,0 +1,14 @@
+{
+  "_comment": "For LOCAL single-machine testing only (docker-compose.yml). Uses Docker's internal service names since all nodes share one Docker network. Do NOT use this file for the multi-computer lab setup -- use topology.json (with real IPs) instead.",
+
+  "0": {"host": "node0", "port": 8000},
+  "1": {"host": "node1", "port": 8000},
+  "2": {"host": "node2", "port": 8000},
+  "3": {"host": "node3", "port": 8000},
+  "4": {"host": "node4", "port": 8000},
+  "5": {"host": "node5", "port": 8000},
+  "6": {"host": "node6", "port": 8000},
+  "7": {"host": "node7", "port": 8000},
+  "8": {"host": "node8", "port": 8000},
+  "9": {"host": "node9", "port": 8000}
+}

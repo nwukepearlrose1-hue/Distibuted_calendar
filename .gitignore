@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.jsonl
+final_status_report.json
+final_hashes_report.json
+aggregated_log.csv
+aggregated_log.md
+causality_pairs.csv

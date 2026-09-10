@@ -1,0 +1,186 @@
+services:
+  node0:
+    build: .
+    container_name: node0
+    environment:
+      NODE_ID: "0"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8001:8000"
+    volumes:
+      - node0-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node1:
+    build: .
+    container_name: node1
+    environment:
+      NODE_ID: "1"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8002:8000"
+    volumes:
+      - node1-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node2:
+    build: .
+    container_name: node2
+    environment:
+      NODE_ID: "2"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8003:8000"
+    volumes:
+      - node2-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node3:
+    build: .
+    container_name: node3
+    environment:
+      NODE_ID: "3"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8004:8000"
+    volumes:
+      - node3-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node4:
+    build: .
+    container_name: node4
+    environment:
+      NODE_ID: "4"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8005:8000"
+    volumes:
+      - node4-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node5:
+    build: .
+    container_name: node5
+    environment:
+      NODE_ID: "5"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8006:8000"
+    volumes:
+      - node5-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node6:
+    build: .
+    container_name: node6
+    environment:
+      NODE_ID: "6"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8007:8000"
+    volumes:
+      - node6-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node7:
+    build: .
+    container_name: node7
+    environment:
+      NODE_ID: "7"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8008:8000"
+    volumes:
+      - node7-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node8:
+    build: .
+    container_name: node8
+    environment:
+      NODE_ID: "8"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8009:8000"
+    volumes:
+      - node8-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+  node9:
+    build: .
+    container_name: node9
+    environment:
+      NODE_ID: "9"
+      BASE_RANDOM_SEED: "42"
+      MIN_DELAY: "30"
+      MAX_DELAY: "90"
+      LOG_DIRECTORY: "/data"
+    networks:
+      - calendar-ring
+    ports:
+      - "8010:8000"
+    volumes:
+      - node9-data:/data
+      - ./topology.local.json:/app/topology.json:ro
+
+networks:
+  calendar-ring:
+    driver: bridge
+
+volumes:
+  node0-data:
+  node1-data:
+  node2-data:
+  node3-data:
+  node4-data:
+  node5-data:
+  node6-data:
+  node7-data:
+  node8-data:
+  node9-data:
