@@ -1,14 +1,8 @@
 """Extract each node's final state_hash from its JSONL log on disk,
-via `docker exec`, without needing to restart the cluster or modify
+via docker exec, without needing to restart the cluster or modify
 any running container.
 
-Use this if your deployed main.py predates the state_hash addition to
-the STATUS response -- the hash is still recoverable because state.py's
-receive() has been logging "state_hash_after" on every RECEIVE_STATE
-line all along.
 
-Usage:
-    python3 extract_final_hashes.py
 """
 
 import json
