@@ -13,9 +13,8 @@ NODE_COUNT = 10
 
 
 def load_events(log_dir):
-    """Pull every event that has a vector timestamp (LOCAL_SCHEDULE
-    entries carry the event's own vector; we use those since each
-    corresponds to a concrete, citable calendar event)."""
+    """Pull every event that has a vector timestamp """
+    
     events = []
     for node_id in range(NODE_COUNT):
         path = os.path.join(log_dir, f"node-{node_id}.jsonl")
@@ -41,8 +40,7 @@ def load_events(log_dir):
 
 
 def import_compare_vectors():
-    # Support being run either from the project root (app/ is a
-    # package) or with vector_compare.py sitting next to this script.
+    
     sys.path.insert(0, os.getcwd())
     try:
         from app.vector_compare import compare_vectors
@@ -106,9 +104,8 @@ def main():
     for rel, rows in by_type.items():
         print(f"  {rel}: {len(rows)}")
 
-    # Curated selection for the report: some of each type, prioritizing
-    # concurrent pairs from *different* nodes since that's what the
-    # spec specifically asks for (at least 3).
+   #spec asks for 3 
+    
     concurrent_diff_node = [
         r for r in by_type["CONCURRENT"] if r["node_a"] != r["node_b"]
     ]
