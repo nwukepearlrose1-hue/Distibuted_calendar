@@ -1,26 +1,4 @@
-"""External controller for the distributed calendar cluster.
 
-Run this from ANY of the physical computers (not inside a container)
-once all 10 nodes are up across all 3 computers. It reads
-topology.json to find every node's real host:port and talks to each
-one using the same newline-terminated JSON protocol the nodes use
-with each other.
-
-Usage:
-    python3 final_sync_controller.py
-
-What it does, in order:
-  1. Polls every node's STATUS until all 10 report scheduler_done=true
-     (i.e. each node has created and sent all TOTAL_EVENTS events).
-  2. Runs several rounds of FINAL_SYNC across all 10 nodes so that
-     state fully propagates around the ring in both directions. A
-     10-node ring has a maximum hop distance of 5, so 5 rounds
-     guarantees every node has heard from every other node at least
-     once, directly or via relay.
-  3. Polls STATUS one last time on all nodes and prints/saves a
-     summary table (lamport, vector, calendar_size, state_hash) --
-     this is exactly the data Report 2 asks you to include.
-"""
 
 import json
 import math
@@ -62,9 +40,10 @@ def node_address(node_id):
 
 def send_and_wait(node_id, message, timeout=5):
     """Send one JSON message to a node and wait for its one-line
-    JSON reply. Returns None on any connection error instead of
-    raising, since the controller should keep going if one node is
-    briefly unreachable."""
+    JSON reply. 
+    
+    Returns None on any connection error."""
+    
     host, port = node_address(node_id)
     data = (json.dumps(message) + "\n").encode("utf-8")
     try:
@@ -130,8 +109,7 @@ def run_final_sync_rounds():
             ack = trigger_final_sync(node_id)
             if not ack or ack.get("type") != "FINAL_SYNC_ACK":
                 print(f"    [warn] node{node_id} did not ack final sync")
-        # Give the fire-and-forget SYNC sends from this round a moment
-        # to be received and merged before triggering the next round.
+        
         time.sleep(SETTLE_SECONDS_BETWEEN_ROUNDS)
     print("Final-sync rounds complete.\n")
 
