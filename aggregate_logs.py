@@ -1,17 +1,7 @@
 """Aggregate all 10 nodes' JSONL logs into one chronological table,
-sorted by Lamport timestamp (never physical time -- the assignment's
-own rule is that physical time is for human readability only, and
+sorted by Lamport timestamp (physical time is for human readability only, and
 must never be used to determine ordering).
 
-Usage:
-    python3 aggregate_logs.py
-        (expects node-0.jsonl ... node-9.jsonl in the current directory,
-         or pass --dir to point elsewhere)
-
-Outputs:
-    aggregated_log.csv     -- full chronological table, one row per event
-    aggregated_log.md      -- same table as a Markdown file, easy to
-                               paste straight into Report 1
 """
 
 import argparse
